@@ -32,7 +32,6 @@ type OracleNode struct {
 	sourceEthClient   *ethclient.Client
 	registryContract  *RegistryContractWrapper
 	oracleContract    *OracleContractWrapper
-	distKeyContract   *DistKeyContract
 	suite             suites.Suite
 	ecdsaPrivateKey   *ecdsa.PrivateKey
 	account           common.Address
@@ -93,21 +92,11 @@ func NewOracleNode(c Config) (*OracleNode, error) {
 		return nil, fmt.Errorf("oracle contract: %v", err)
 	}
 
-	distKeyContract, err := NewDistKeyContract(common.HexToAddress(c.Contracts.DistKeyContractAddress), targetEthClient)
-	if err != nil {
-		return nil, fmt.Errorf("dist key contract: %v", err)
-	}
-
 	suite := bn256.NewSuiteG2()
 
 	ecdsaPrivateKey, err := crypto.HexToECDSA(c.Ethereum.PrivateKey)
 	if err != nil {
 		return nil, fmt.Errorf("hex to ecdsa: %v", err)
-	}
-
-	blsPrivateKey, err := HexToScalar(suite, c.PrivateKey)
-	if err != nil {
-		return nil, fmt.Errorf("hex to scalar: %v", err)
 	}
 
 	hexAddress, err := AddressFromPrivateKey(ecdsaPrivateKey)
@@ -129,16 +118,13 @@ func NewOracleNode(c Config) (*OracleNode, error) {
 		chainId,
 	)
 	dkg := NewDistKeyGenerator(
-		suite,
 		connectionManager,
 		aggregator,
 		mqttClient,
 		mqttTopic,
 		iotaAPI,
 		registryContractWrapper,
-		distKeyContract,
 		ecdsaPrivateKey,
-		blsPrivateKey,
 		account,
 		chainId,
 	)
@@ -152,7 +138,6 @@ func NewOracleNode(c Config) (*OracleNode, error) {
 		sourceEthClient:   sourceEthClient,
 		registryContract:  registryContractWrapper,
 		oracleContract:    oracleContractWrapper,
-		distKeyContract:   distKeyContract,
 		suite:             suite,
 		ecdsaPrivateKey:   ecdsaPrivateKey,
 		account:           account,

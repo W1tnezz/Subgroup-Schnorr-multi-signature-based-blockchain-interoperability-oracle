@@ -21,6 +21,8 @@ import (
 	"go.dedis.ch/kyber/v3/suites"
 )
 
+// TODO： 参考DKG实现子分组ECDSA签名过程；
+
 type DistKeyGenerator struct {
 	sync.Mutex
 	dkg               *dkg.DistKeyGenerator
@@ -42,30 +44,25 @@ type DistKeyGenerator struct {
 }
 
 func NewDistKeyGenerator(
-	suite suites.Suite,
 	connectionManager *ConnectionManager,
 	aggregator *Aggregator,
 	mqttClient mqtt.Client,
 	mqttTopic []byte,
 	iotaClient *iota.NodeHTTPAPIClient,
 	registryContract *RegistryContractWrapper,
-	distKeyContract *DistKeyContract,
 	ecdsaPrivateKey *ecdsa.PrivateKey,
-	blsPrivateKey kyber.Scalar,
 	account common.Address,
 	chainId *big.Int,
 ) *DistKeyGenerator {
 	return &DistKeyGenerator{
-		suite:             suite,
+
 		connectionManager: connectionManager,
 		aggregator:        aggregator,
 		mqttClient:        mqttClient,
 		mqttTopic:         mqttTopic,
 		iotaClient:        iotaClient,
 		registryContract:  registryContract,
-		distKeyContract:   distKeyContract,
 		ecdsaPrivateKey:   ecdsaPrivateKey,
-		blsPrivateKey:     blsPrivateKey,
 		account:           account,
 		deals:             make(map[uint32]*dkg.Deal),
 		pendingResp:       make(map[uint32][]*dkg.Response),
@@ -156,7 +153,7 @@ func (g *DistKeyGenerator) HandleDistributedKeyGenerationLog(event *DistKeyContr
 		return fmt.Errorf("new DKG: %w", err)
 	}
 
-	//Wait until every participant is prepared. TODO: Wait for head n
+	//Wait until every participant is prepared.
 	time.Sleep(5 * time.Second)
 
 	deals, err := g.dkg.Deals()

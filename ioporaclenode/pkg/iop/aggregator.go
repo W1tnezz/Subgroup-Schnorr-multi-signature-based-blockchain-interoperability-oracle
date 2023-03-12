@@ -221,8 +221,6 @@ func (a *Aggregator) AggregateValidationResults(ctx context.Context, txHash comm
 						return
 					}
 
-					//TODO: Check block number and signature before adding the result
-
 				}()
 			}
 		}
@@ -294,8 +292,6 @@ func (a *Aggregator) AggregateValidationResults(ctx context.Context, txHash comm
 					log.Errorf("Validate %s: %v", typ, err)
 					return
 				}
-
-				//TODO: Check block number and signature before adding the result
 				mutex.Lock()
 				if result.Valid {
 					positiveResults = append(positiveResults, result.Signature)

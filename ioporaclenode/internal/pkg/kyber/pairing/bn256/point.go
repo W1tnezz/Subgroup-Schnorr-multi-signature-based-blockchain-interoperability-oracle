@@ -600,8 +600,6 @@ func (p *pointGT) UnmarshalBinary(buf []byte) error {
 	montEncode(&p.g.y.z.x, &p.g.y.z.x)
 	montEncode(&p.g.y.z.y, &p.g.y.z.y)
 
-	// TODO: check if point is on curve
-
 	return nil
 }
 
