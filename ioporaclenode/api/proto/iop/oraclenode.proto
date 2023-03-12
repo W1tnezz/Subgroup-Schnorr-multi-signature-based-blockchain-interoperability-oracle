@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package iop;
+option go_package = ".;iop";
+
+message SendDealRequest {
+  Deal deal = 1;
+}
+
+message SendDealResponse {
+}
+
+message ValidateRequest {
+  enum Type {
+    unknown = 0;
+    block = 1;
+    transaction = 2;
+  }
+  Type type = 1;
+  bytes hash = 2;
+}
+
+message Deal {
+  uint32 index = 1;
+  EncryptedDeal deal = 2;
+  bytes signature = 3;
+}
+
+message EncryptedDeal {
+  bytes dhKey = 1;
+  bytes signature = 2;
+  bytes nonce = 3;
+  bytes cipher = 4;
+}
+
+message ValidateResponse {
+  bytes hash = 1;
+  bool valid = 2;
+  int64 blockNumber = 3;
+  bytes signature = 4;
+}
+
+service OracleNode {
+  rpc SendDeal(SendDealRequest) returns (SendDealResponse);
+  rpc Validate(ValidateRequest) returns (ValidateResponse);
+}
