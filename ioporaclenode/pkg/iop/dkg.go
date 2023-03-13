@@ -55,7 +55,6 @@ func NewDistKeyGenerator(
 	chainId *big.Int,
 ) *DistKeyGenerator {
 	return &DistKeyGenerator{
-
 		connectionManager: connectionManager,
 		aggregator:        aggregator,
 		mqttClient:        mqttClient,

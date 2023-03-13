@@ -6,6 +6,7 @@ import "./RegistryContract.sol";
 contract OracleContract {
     struct EnrollNode {
         address addr;
+
         uint256 index;
     }
 
@@ -21,7 +22,6 @@ contract OracleContract {
     uint256 public constant COMPENSATION_FEE = 0.001 ether;
 
     uint256 public constant TOTAL_FEE = BASE_FEE + VALIDATOR_FEE * 100;
-    
 
     uint256 private constant G2_NEG_X_RE =
         0x198E9393920D483A7260BFB731FB5D25F1AA493335A9E71297E485B7AEF312C2;
@@ -47,6 +47,9 @@ contract OracleContract {
 
     event ValidationRequest(ValidationType typ, address indexed from, bytes32 hash);
     // indexed属性是为了方便在日志结构中查找，这个是一个事件，会存储到交易的日志中，就是类似于挖矿上链
+
+    event ValidationBegin();
+
     event ValidationResponse(
         ValidationType typ,
         address indexed aggregator,   
@@ -148,15 +151,16 @@ contract OracleContract {
 
     // 报名
     function EnrollOracleNode() external payable{
-        require(enrollNodeIndices.length <= registryContract.countOracleNodes(), "Enrollment closed!");
+        require(enrollNodeIndices.length <= registryContract.countOracleNodes()/2, "Enrollment closed!");
         require(registryContract.oracleNodeIsRegistered(msg.sender) , "The Oracle doesn't registered");
         require(!oracleNodeIsEnroll(msg.sender), "already enrolled");
-
         EnrollNode storage iopNode = enrollNodes[msg.sender];
         iopNode.addr = msg.sender;
         iopNode.index = enrollNodeIndices.length;
         enrollNodeIndices.push(iopNode.addr);
-
+        if(enrollNodeIndices.length == registryContract.countOracleNodes()/2 + 1){
+            emit ValidationBegin();
+        }
     }
     // 是否报名
     function oracleNodeIsEnroll(address _addr) public view returns (bool){
