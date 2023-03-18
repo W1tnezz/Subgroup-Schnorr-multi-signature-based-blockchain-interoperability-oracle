@@ -97,23 +97,22 @@ contract OracleContract {
 
         require(_typ != ValidationType.UNKNOWN, "unknown validation type");
 
-        RegistryContract.OracleNode memory aggregator =
-            registryContract.getAggregator();
+        // RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
 
-        require(aggregator.addr == msg.sender, "not the aggregator");  //判断当前合约的调用者是不是聚合器， 因此对于验证器的奖励和惩罚要放在前面
+        // require(aggregator.addr == msg.sender, "not the aggregator");  //判断当前合约的调用者是不是聚合器， 因此对于验证器的奖励和惩罚要放在前面
 
         /***************
          *ECDSA签名的验证*
          ***************/
+
         address signer = ecrecover(_hash, v, r, s);
         require(signer != address(0), "ECDSA: invalid signature");
         require(signer == aggregateAddress, "signature: address does not match");
 
         delete enrollNodeIndices;
-        //uint256 fee = calculateFee(aggregator.stake, _signature[0]);
         
         // 给当前合约的调用者（聚合器）转账 
-        payable(msg.sender).transfer(BASE_FEE);     //此处完成给聚合器的报酬转账
+        // payable(msg.sender).transfer(BASE_FEE);     //此处完成给聚合器的报酬转账
 
         // 给所有的参与验证的验证器节点转账
         for(uint32 i = 0 ; i < enrollNodeIndices.length ; i++){

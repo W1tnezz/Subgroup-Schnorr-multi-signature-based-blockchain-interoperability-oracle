@@ -2,7 +2,6 @@ package iop
 
 type Config struct {
 	BindAddress string
-	PrivateKey  string
 	Contracts   ContractsConfig
 	Ethereum    EthereumConfig
 	IOTA        IOTAConfig
@@ -11,7 +10,6 @@ type Config struct {
 type ContractsConfig struct {
 	RegistryContractAddress string
 	OracleContractAddress   string
-	DistKeyContractAddress  string
 }
 
 type EthereumConfig struct {

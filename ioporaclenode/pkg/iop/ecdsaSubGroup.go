@@ -8,7 +8,6 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	iota "github.com/iotaledger/iota.go/v2"
 	log "github.com/sirupsen/logrus"
-	"go.dedis.ch/kyber/v3"
 	dkg "go.dedis.ch/kyber/v3/share/dkg/pedersen"
 	"go.dedis.ch/kyber/v3/suites"
 	"math/big"
@@ -27,7 +26,6 @@ type SubgroupSigGenerator struct {
 	registryContract  *RegistryContractWrapper
 	oracleContract    *OracleContract
 	ecdsaPrivateKey   *ecdsa.PrivateKey
-	blsPrivateKey     kyber.Scalar
 	account           common.Address
 	deals             map[uint32]*dkg.Deal
 	pendingResp       map[uint32][]*dkg.Response
@@ -80,6 +78,7 @@ func (g *SubgroupSigGenerator) ListenAndProcess(ctx context.Context) error {
 	return nil
 }
 
+// 循环监听链上的ValidateBegin通知；
 func (g *SubgroupSigGenerator) WatchAndHandleECDSALog(ctx context.Context) error {
 	sink := make(chan *OracleContractValidationBegin)
 	defer close(sink)
@@ -100,7 +99,7 @@ func (g *SubgroupSigGenerator) WatchAndHandleECDSALog(ctx context.Context) error
 			log.Infof("Received Validation Begin event!")
 			if err := g.HandleValidationBeginLog(event); err != nil {
 				log.Errorf("Handle ValidationBegin log: %v", err)
-			}
+			} // 处理ValidationBegin通知;
 		case err = <-sub.Err():
 			return err
 		case <-ctx.Done():
@@ -116,5 +115,6 @@ func (g *SubgroupSigGenerator) ListenAndProcessResponse() error {
 
 func (g *SubgroupSigGenerator) HandleValidationBeginLog(event *OracleContractValidationBegin) error {
 	// TODO:收到链上通知后，开始子分组ECDSA交互；
+
 	return nil
 }
