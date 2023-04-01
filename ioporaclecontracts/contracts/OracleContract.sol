@@ -2,11 +2,11 @@
 pragma solidity  ^0.8.0;
 
 import "./RegistryContract.sol";
+import "./crypto/Schnorr.sol";
 
 contract OracleContract {
     struct EnrollNode {
         address addr;
-
         uint256 index;
     }
 
@@ -22,15 +22,6 @@ contract OracleContract {
     uint256 public constant COMPENSATION_FEE = 0.001 ether;
 
     uint256 public constant TOTAL_FEE = BASE_FEE + VALIDATOR_FEE * 100;
-
-    uint256 private constant G2_NEG_X_RE =
-        0x198E9393920D483A7260BFB731FB5D25F1AA493335A9E71297E485B7AEF312C2;
-    uint256 private constant G2_NEG_X_IM =
-        0x1800DEEF121F1E76426A00665E5C4479674322D4F75EDADD46DEBD5CD992F6ED;
-    uint256 private constant G2_NEG_Y_RE =
-        0x275dc4a288d1afb3cbb1ac09187524c7db36395df7be3b99e673b13a075a65ec;
-    uint256 private constant G2_NEG_Y_IM =
-        0x1d9befcd05a5323e6da4d435f3b617cdb3af83285c2df711ef39c01571827f9d;
 
     uint256 private requestCounter;
     uint256 private requestsSinceLastPayout;
@@ -59,9 +50,10 @@ contract OracleContract {
     );
 
     RegistryContract private registryContract;
-
+    // Schnorr private schnorr;
     constructor(address _registryContract) {
         registryContract = RegistryContract(_registryContract);
+        // schnorr = Schnorr(_schnorr);
     }
 
     modifier minFee(uint _min) {
@@ -77,22 +69,20 @@ contract OracleContract {
         emit ValidationRequest(ValidationType.TRANSACTION, msg.sender, _hash);
     }
 
-    function submitBlockValidationResult(bool _result, address aggregateAddress, uint8 v, bytes32 r, bytes32 s, bytes32 _hash ) external {
-        submitValidationResult(ValidationType.BLOCK, _result, aggregateAddress, v, r, s, _hash );
+    function submitBlockValidationResult(bool _result, bytes32 message, uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash) external {
+        submitValidationResult(ValidationType.BLOCK, _result, message, signature, pubKeyX, pubKeyY, RX, RY, _hash);
     }
 
-    function submitTransactionValidationResult(bool _result, address aggregateAddress, uint8 v, bytes32 r, bytes32 s, bytes32 _hash ) external {
-        submitValidationResult(ValidationType.TRANSACTION, _result, aggregateAddress, v, r, s, _hash );
+    function submitTransactionValidationResult(bool _result, bytes32 message, uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash) external {
+        submitValidationResult(ValidationType.TRANSACTION, _result, message, signature, pubKeyX, pubKeyY, RX, RY, _hash);
     }
+
 
     function submitValidationResult(
         ValidationType _typ,
         bool _result,  // 验证结果？
-        address aggregateAddress,
-        uint8 v,
-        bytes32 r,
-        bytes32 s,
-        bytes32 _hash
+        bytes32 message,
+        uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash
     ) private {
 
         require(_typ != ValidationType.UNKNOWN, "unknown validation type");
@@ -101,16 +91,13 @@ contract OracleContract {
 
         // require(aggregator.addr == msg.sender, "not the aggregator");  //判断当前合约的调用者是不是聚合器， 因此对于验证器的奖励和惩罚要放在前面
 
-        /***************
-         *ECDSA签名的验证*
-         ***************/
+        /******************
+         *Schnorr签名的验证*
+         ******************/
 
-        address signer = ecrecover(_hash, v, r, s);
-        require(signer != address(0), "ECDSA: invalid signature");
-        require(signer == aggregateAddress, "signature: address does not match");
-
+        // require(Schnorr.verify(signature, pubKeyX, pubKeyY, RX, RY, _hash), "signature: address does not match");
         delete enrollNodeIndices;
-        
+
         // 给当前合约的调用者（聚合器）转账 
         // payable(msg.sender).transfer(BASE_FEE);     //此处完成给聚合器的报酬转账
 
@@ -120,12 +107,12 @@ contract OracleContract {
         }
         
         if (_typ == ValidationType.BLOCK) {
-            blockValidationResults[_hash] = _result;
+            blockValidationResults[message] = _result;
         } else if (_typ == ValidationType.TRANSACTION) {
-            txValidationResults[_hash] = _result;
+            txValidationResults[message] = _result;
         }
 
-        emit ValidationResponse(_typ, msg.sender, _hash, _result, BASE_FEE + VALIDATOR_FEE * enrollNodeIndices.length );  // 通知连下，聚合奖励 + 验证奖励 * 验证器报名个数
+        emit ValidationResponse(_typ, msg.sender, message, _result, BASE_FEE + VALIDATOR_FEE * enrollNodeIndices.length );  // 通知连下，聚合奖励 + 验证奖励 * 验证器报名个数
     }
 
     // 关于聚合器质询扣费，是每质询一次就扣费一次,给合约转账(暂时存在问题)

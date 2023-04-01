@@ -1,22 +1,32 @@
 package test
 
 import (
+	"bytes"
 	"crypto/ecdsa"
+	"crypto/rand"
+	"crypto/sha256"
 	"fmt"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto/secp256k1"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"math/big"
 )
 
 type TestAccount struct {
 	UnsafeOracleNodeServer
+	suite           *secp256k1.BitCurve
 	targetEthClient *ethclient.Client
 	oracleContract  *OracleContractWrapper
 	ecdsaPrivateKey *ecdsa.PrivateKey
 	account         common.Address
 	chainId         *big.Int
+}
+
+type Point struct {
+	X *big.Int
+	Y *big.Int
 }
 
 func NewTestAccount(c Config) (*TestAccount, error) {
@@ -49,7 +59,9 @@ func NewTestAccount(c Config) (*TestAccount, error) {
 	}
 	account := common.HexToAddress(hexAddress)
 
+	suite := secp256k1.S256()
 	node := &TestAccount{
+		suite:           suite,
 		targetEthClient: targetEthClient,
 		oracleContract:  oracleContractWrapper,
 		ecdsaPrivateKey: ecdsaPrivateKey,
@@ -73,7 +85,7 @@ func (n *TestAccount) Run() error {
 
 	// 待签名消息的hash值，格式为32位Bytes数组
 	str := "1256901778428453331bd44b1619e05350b853610968f54da7338e4c331acbe2"
-	hash := crypto.Keccak256Hash([]byte(str))
+	message := crypto.Keccak256Hash([]byte(str))
 
 	// 测试用的ECDSA公私钥，当作是最后聚合的公私钥
 	testECDSAKey, _ := crypto.GenerateKey()
@@ -84,30 +96,36 @@ func (n *TestAccount) Run() error {
 	fmt.Print("测试公钥：")
 	fmt.Println(testPublicKey)
 
-	testAddress := crypto.PubkeyToAddress(testPublicKey)
+	r := make([]byte, 32)
+	rand.Read(r)
+	R := new(Point)
+	R.X, R.Y = n.suite.ScalarBaseMult(r)
 
-	sig, _ := crypto.Sign(hash.Bytes(), testECDSAKey)
-	fmt.Print("signature:")
-	fmt.Println(sig)
-	var r [32]byte
-	for i := 0; i < 32; i++ {
-		r[i] = sig[i]
-	}
-	fmt.Print("r：")
-	fmt.Println(r)
-	var s [32]byte
-	for i := 0; i < 32; i++ {
-		s[i] = sig[i+32]
-	}
-	fmt.Print("s：")
-	fmt.Println(s)
+	RBytes := n.suite.Marshal(R.X, R.Y)
+	PublicKeyBytes := n.suite.Marshal(testPublicKey.X, testPublicKey.Y)
+	h := make([][]byte, 3)
+	h[0] = RBytes
+	h[1] = PublicKeyBytes
+	h[2] = []byte(str)
+	hash := sha256.New()
+	e := hash.Sum(bytes.Join(h, []byte("")))[:32]
+	_hash := new(big.Int)
+	_hash.SetBytes(e)
 
-	// 巨坑：以太坊黄皮书更新v从0/1为27/28
-	var v = sig[64] + 27
-	fmt.Print("v：")
-	fmt.Println(v)
+	s := big.NewInt(1)
+	s.Mul(testPrivateKey, new(big.Int).SetBytes(e)).Add(s, new(big.Int).SetBytes(r))
+	s.Mod(s, n.suite.N)
 
-	_, err = n.oracleContract.SubmitTransactionValidationResult(auth, true, testAddress, v, r, s, hash)
+	tmp := new(Point)
+	tmp.X, tmp.Y = n.suite.ScalarMult(testPublicKey.X, testPublicKey.Y, e)
+
+	/*	S1 := new(Point)
+		S1.X, S1.Y = n.suite.Add(R.X, R.Y, tmp.X, tmp.Y)
+		S2 := new(Point)
+		S2.X, S2.Y = n.suite.ScalarBaseMult(s.Bytes())
+		fmt.Println(S1.x, S2.x)*/
+
+	_, err = n.oracleContract.SubmitTransactionValidationResult(auth, true, message, s, testPublicKey.X, testPublicKey.Y, R.X, R.Y, _hash)
 	if err != nil {
 		return fmt.Errorf("submit error: %w", err)
 	}

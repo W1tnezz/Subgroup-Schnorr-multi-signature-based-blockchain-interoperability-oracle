@@ -1,0 +1,2179 @@
+{
+  "contractName": "Schnorr",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "AA",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BB",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GX",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GY",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PP",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"AA\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"BB\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GX\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GY\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PP\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"W1tnezz\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Schnorr Signature Verify on Secp256k1 Elliptic Curve\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/crypto/Schnorr.sol\":\"Schnorr\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/crypto/EllipticCurve.sol\":{\"keccak256\":\"0x388c1c79711d9635932a246d792d7b7606febb8d9dcc82d8ff396bb69289e87a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0de158980477d01ea9d885cde832dd33908f8677d66f6e2357c039dc4a5b7961\",\"dweb:/ipfs/QmNSvHhaNQ5RjntXN7v3uEzahMmCSw3GTi9M6KKyMWLNA2\"]},\"project:/contracts/crypto/Schnorr.sol\":{\"keccak256\":\"0x41d9ecda54aca68f4ad5f718da1beee2fd38a7524ed136a4c7ea55ca5dfba767\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8eae1bf815fe37853807d9dab2027875483bf1e9e8e3c85ecebc23df95b4e35b\",\"dweb:/ipfs/QmRJu16pWcWxKJvj3Z1FYNLJpri9Z2r1215yK4etHDuQpu\"]}},\"version\":1}",
+  "bytecode": "0x6101dc610053600b82828239805160001a607314610046577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100615760003560e01c806303a507be146100665780635727dc5c146100845780637a308a4c146100a2578063997da8d4146100c0578063eeeac01e146100de575b600080fd5b61006e6100fc565b60405161007b919061018b565b60405180910390f35b61008c610120565b604051610099919061018b565b60405180910390f35b6100aa610125565b6040516100b7919061018b565b60405180910390f35b6100c8610149565b6040516100d5919061018b565b60405180910390f35b6100e661014e565b6040516100f3919061018b565b60405180910390f35b7f79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f8179881565b600781565b7f483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b881565b600081565b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f81565b6000819050919050565b61018581610172565b82525050565b60006020820190506101a0600083018461017c565b9291505056fea2646970667358221220664acb6d0028f907bafb4e58f0b520711e06a933ca8bc7a6325d8a4d92f37baf64736f6c63430008110033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100615760003560e01c806303a507be146100665780635727dc5c146100845780637a308a4c146100a2578063997da8d4146100c0578063eeeac01e146100de575b600080fd5b61006e6100fc565b60405161007b919061018b565b60405180910390f35b61008c610120565b604051610099919061018b565b60405180910390f35b6100aa610125565b6040516100b7919061018b565b60405180910390f35b6100c8610149565b6040516100d5919061018b565b60405180910390f35b6100e661014e565b6040516100f3919061018b565b60405180910390f35b7f79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f8179881565b600781565b7f483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b881565b600081565b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f81565b6000819050919050565b61018581610172565b82525050565b60006020820190506101a0600083018461017c565b9291505056fea2646970667358221220664acb6d0028f907bafb4e58f0b520711e06a933ca8bc7a6325d8a4d92f37baf64736f6c63430008110033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [
+    {
+      "ast": {
+        "nodeType": "YulBlock",
+        "src": "0:463:4",
+        "statements": [
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "52:32:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "62:16:4",
+                  "value": {
+                    "name": "value",
+                    "nodeType": "YulIdentifier",
+                    "src": "73:5:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "cleaned",
+                      "nodeType": "YulIdentifier",
+                      "src": "62:7:4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "name": "cleanup_t_uint256",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "34:5:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "cleaned",
+                "nodeType": "YulTypedName",
+                "src": "44:7:4",
+                "type": ""
+              }
+            ],
+            "src": "7:77:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "163:53:4",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "name": "pos",
+                        "nodeType": "YulIdentifier",
+                        "src": "180:3:4"
+                      },
+                      {
+                        "arguments": [
+                          {
+                            "name": "value",
+                            "nodeType": "YulIdentifier",
+                            "src": "203:5:4"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "cleanup_t_uint256",
+                          "nodeType": "YulIdentifier",
+                          "src": "185:17:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "185:24:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "mstore",
+                      "nodeType": "YulIdentifier",
+                      "src": "173:6:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "173:37:4"
+                  },
+                  "nodeType": "YulExpressionStatement",
+                  "src": "173:37:4"
+                }
+              ]
+            },
+            "name": "abi_encode_t_uint256_to_t_uint256_fromStack_library",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "151:5:4",
+                "type": ""
+              },
+              {
+                "name": "pos",
+                "nodeType": "YulTypedName",
+                "src": "158:3:4",
+                "type": ""
+              }
+            ],
+            "src": "90:126:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "328:132:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "338:26:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "headStart",
+                        "nodeType": "YulIdentifier",
+                        "src": "350:9:4"
+                      },
+                      {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "361:2:4",
+                        "type": "",
+                        "value": "32"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "add",
+                      "nodeType": "YulIdentifier",
+                      "src": "346:3:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "346:18:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "tail",
+                      "nodeType": "YulIdentifier",
+                      "src": "338:4:4"
+                    }
+                  ]
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "name": "value0",
+                        "nodeType": "YulIdentifier",
+                        "src": "426:6:4"
+                      },
+                      {
+                        "arguments": [
+                          {
+                            "name": "headStart",
+                            "nodeType": "YulIdentifier",
+                            "src": "439:9:4"
+                          },
+                          {
+                            "kind": "number",
+                            "nodeType": "YulLiteral",
+                            "src": "450:1:4",
+                            "type": "",
+                            "value": "0"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "add",
+                          "nodeType": "YulIdentifier",
+                          "src": "435:3:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "435:17:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "abi_encode_t_uint256_to_t_uint256_fromStack_library",
+                      "nodeType": "YulIdentifier",
+                      "src": "374:51:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "374:79:4"
+                  },
+                  "nodeType": "YulExpressionStatement",
+                  "src": "374:79:4"
+                }
+              ]
+            },
+            "name": "abi_encode_tuple_t_uint256__to_t_uint256__fromStack_library_reversed",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "headStart",
+                "nodeType": "YulTypedName",
+                "src": "300:9:4",
+                "type": ""
+              },
+              {
+                "name": "value0",
+                "nodeType": "YulTypedName",
+                "src": "312:6:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "tail",
+                "nodeType": "YulTypedName",
+                "src": "323:4:4",
+                "type": ""
+              }
+            ],
+            "src": "222:238:4"
+          }
+        ]
+      },
+      "contents": "{\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack_library(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_library_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack_library(value0,  add(headStart, 0))\n\n    }\n\n}\n",
+      "id": 4,
+      "language": "Yul",
+      "name": "#utility.yul"
+    }
+  ],
+  "sourceMap": "178:1101:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "178:1101:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;199:95;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;431:30;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;298:95;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;397:30;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;465:95;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;199;228:66;199:95;:::o;431:30::-;460:1;431:30;:::o;298:95::-;327:66;298:95;:::o;397:30::-;426:1;397:30;:::o;465:95::-;494:66;465:95;:::o;7:77:4:-;44:7;73:5;62:16;;7:77;;;:::o;90:126::-;185:24;203:5;185:24;:::i;:::-;180:3;173:37;90:126;;:::o;222:238::-;323:4;361:2;350:9;346:18;338:26;;374:79;450:1;439:9;435:17;426:6;374:79;:::i;:::-;222:238;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"./EllipticCurve.sol\";\n\n/**\n * @title Schnorr Signature Verify on Secp256k1 Elliptic Curve\n * @author W1tnezz\n */\nlibrary  Schnorr {\n  uint256 public constant GX = 0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798;\n  uint256 public constant GY = 0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8;\n  uint256 public constant AA = 0;\n  uint256 public constant BB = 7;\n  uint256 public constant PP = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F;\n\n  struct ECPoint {\n    uint256 x;\n    uint256 y;\n  }\n\n  function verify(uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash) internal pure returns (bool) {\n    require(EllipticCurve.isOnCurve(pubKeyX, pubKeyY, AA, BB, PP), \"Invalid public key!\");\n    require(EllipticCurve.isOnCurve(RX, RY, AA, BB, PP), \"Invalid R!\");\n\n    // S1 = sig * G;\n    ECPoint memory S1;\n    (S1.x, S1.y) = EllipticCurve.ecMul(signature, GX, GY, AA, PP);\n\n    // S2 = R + _hash * PubKey;\n    ECPoint memory S2;\n    (S2.x, S2.y) = EllipticCurve.ecMul(_hash, pubKeyX, pubKeyY, AA, PP);\n    (S2.x, S2.y) = EllipticCurve.ecAdd(RX, RY, S2.x, S2.y, AA, PP);\n    // S1 == S2;\n\n    return S1.x == S2.x;\n  }\n}",
+  "sourcePath": "/home/indistinguishable/GameBasedOracle/ioporaclecontracts/contracts/crypto/Schnorr.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/crypto/Schnorr.sol",
+    "exportedSymbols": {
+      "EllipticCurve": [
+        1962
+      ],
+      "Schnorr": [
+        2094
+      ]
+    },
+    "id": 2095,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1964,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "project:/contracts/crypto/EllipticCurve.sol",
+        "file": "./EllipticCurve.sol",
+        "id": 1965,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2095,
+        "sourceUnit": 1963,
+        "src": "57:29:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Schnorr",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 1966,
+          "nodeType": "StructuredDocumentation",
+          "src": "88:89:3",
+          "text": " @title Schnorr Signature Verify on Secp256k1 Elliptic Curve\n @author W1tnezz"
+        },
+        "fullyImplemented": true,
+        "id": 2094,
+        "linearizedBaseContracts": [
+          2094
+        ],
+        "name": "Schnorr",
+        "nameLocation": "187:7:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "functionSelector": "03a507be",
+            "id": 1969,
+            "mutability": "constant",
+            "name": "GX",
+            "nameLocation": "223:2:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 2094,
+            "src": "199:95:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1967,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "199:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "307837394245363637454639444342424143353541303632393543453837304230373032394246434442324443453238443935394632383135423136463831373938",
+              "id": 1968,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "228:66:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_55066263022277343669578718895168534326250603453777594175500187360389116729240_by_1",
+                "typeString": "int_const 5506...(69 digits omitted)...9240"
+              },
+              "value": "0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "7a308a4c",
+            "id": 1972,
+            "mutability": "constant",
+            "name": "GY",
+            "nameLocation": "322:2:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 2094,
+            "src": "298:95:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1970,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "298:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "307834383341444137373236413343343635354441344642464330453131303841384644313742343438413638353534313939433437443038464642313044344238",
+              "id": 1971,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "327:66:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_32670510020758816978083085130507043184471273380659243275938904335757337482424_by_1",
+                "typeString": "int_const 3267...(69 digits omitted)...2424"
+              },
+              "value": "0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "997da8d4",
+            "id": 1975,
+            "mutability": "constant",
+            "name": "AA",
+            "nameLocation": "421:2:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 2094,
+            "src": "397:30:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1973,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "397:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "30",
+              "id": 1974,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "426:1:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "5727dc5c",
+            "id": 1978,
+            "mutability": "constant",
+            "name": "BB",
+            "nameLocation": "455:2:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 2094,
+            "src": "431:30:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1976,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "431:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "37",
+              "id": 1977,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "460:1:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_7_by_1",
+                "typeString": "int_const 7"
+              },
+              "value": "7"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "eeeac01e",
+            "id": 1981,
+            "mutability": "constant",
+            "name": "PP",
+            "nameLocation": "489:2:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 2094,
+            "src": "465:95:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1979,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "465:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "307846464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646464646454646464646433246",
+              "id": 1980,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "494:66:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_115792089237316195423570985008687907853269984665640564039457584007908834671663_by_1",
+                "typeString": "int_const 1157...(70 digits omitted)...1663"
+              },
+              "value": "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F"
+            },
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Schnorr.ECPoint",
+            "id": 1986,
+            "members": [
+              {
+                "constant": false,
+                "id": 1983,
+                "mutability": "mutable",
+                "name": "x",
+                "nameLocation": "594:1:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 1986,
+                "src": "586:9:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1982,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "586:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1985,
+                "mutability": "mutable",
+                "name": "y",
+                "nameLocation": "609:1:3",
+                "nodeType": "VariableDeclaration",
+                "scope": 1986,
+                "src": "601:9:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1984,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "601:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ECPoint",
+            "nameLocation": "572:7:3",
+            "nodeType": "StructDefinition",
+            "scope": 2094,
+            "src": "565:50:3",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2092,
+              "nodeType": "Block",
+              "src": "757:520:3",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 2006,
+                            "name": "pubKeyX",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1990,
+                            "src": "795:7:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2007,
+                            "name": "pubKeyY",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1992,
+                            "src": "804:7:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2008,
+                            "name": "AA",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1975,
+                            "src": "813:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2009,
+                            "name": "BB",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1978,
+                            "src": "817:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2010,
+                            "name": "PP",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1981,
+                            "src": "821:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "id": 2004,
+                            "name": "EllipticCurve",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1962,
+                            "src": "771:13:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_EllipticCurve_$1962_$",
+                              "typeString": "type(library EllipticCurve)"
+                            }
+                          },
+                          "id": 2005,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "785:9:3",
+                          "memberName": "isOnCurve",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1195,
+                          "src": "771:23:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (uint256,uint256,uint256,uint256,uint256) pure returns (bool)"
+                          }
+                        },
+                        "id": 2011,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "771:53:3",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "496e76616c6964207075626c6963206b657921",
+                        "id": 2012,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "826:21:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_32d2a0de55409bbf15dd4ff7519bf661e86fd843e7f8c8b8f88255262299e676",
+                          "typeString": "literal_string \"Invalid public key!\""
+                        },
+                        "value": "Invalid public key!"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_32d2a0de55409bbf15dd4ff7519bf661e86fd843e7f8c8b8f88255262299e676",
+                          "typeString": "literal_string \"Invalid public key!\""
+                        }
+                      ],
+                      "id": 2003,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "763:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 2013,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "763:85:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2014,
+                  "nodeType": "ExpressionStatement",
+                  "src": "763:85:3"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 2018,
+                            "name": "RX",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1994,
+                            "src": "886:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2019,
+                            "name": "RY",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1996,
+                            "src": "890:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2020,
+                            "name": "AA",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1975,
+                            "src": "894:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2021,
+                            "name": "BB",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1978,
+                            "src": "898:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 2022,
+                            "name": "PP",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1981,
+                            "src": "902:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "id": 2016,
+                            "name": "EllipticCurve",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1962,
+                            "src": "862:13:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_EllipticCurve_$1962_$",
+                              "typeString": "type(library EllipticCurve)"
+                            }
+                          },
+                          "id": 2017,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "876:9:3",
+                          "memberName": "isOnCurve",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1195,
+                          "src": "862:23:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (uint256,uint256,uint256,uint256,uint256) pure returns (bool)"
+                          }
+                        },
+                        "id": 2023,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "862:43:3",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "496e76616c6964205221",
+                        "id": 2024,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "907:12:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_71d6c3e2a2ca2472ae33bed34be0aa3d56dc6a1e1c1b87010773a9657a2abde9",
+                          "typeString": "literal_string \"Invalid R!\""
+                        },
+                        "value": "Invalid R!"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_71d6c3e2a2ca2472ae33bed34be0aa3d56dc6a1e1c1b87010773a9657a2abde9",
+                          "typeString": "literal_string \"Invalid R!\""
+                        }
+                      ],
+                      "id": 2015,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "854:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 2025,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "854:66:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2026,
+                  "nodeType": "ExpressionStatement",
+                  "src": "854:66:3"
+                },
+                {
+                  "assignments": [
+                    2029
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2029,
+                      "mutability": "mutable",
+                      "name": "S1",
+                      "nameLocation": "963:2:3",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2092,
+                      "src": "948:17:3",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                        "typeString": "struct Schnorr.ECPoint"
+                      },
+                      "typeName": {
+                        "id": 2028,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 2027,
+                          "name": "ECPoint",
+                          "nameLocations": [
+                            "948:7:3"
+                          ],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 1986,
+                          "src": "948:7:3"
+                        },
+                        "referencedDeclaration": 1986,
+                        "src": "948:7:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ECPoint_$1986_storage_ptr",
+                          "typeString": "struct Schnorr.ECPoint"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2030,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "948:17:3"
+                },
+                {
+                  "expression": {
+                    "id": 2045,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "expression": {
+                            "id": 2031,
+                            "name": "S1",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2029,
+                            "src": "972:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2033,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "975:1:3",
+                          "memberName": "x",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1983,
+                          "src": "972:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 2034,
+                            "name": "S1",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2029,
+                            "src": "978:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2035,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "981:1:3",
+                          "memberName": "y",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1985,
+                          "src": "978:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "id": 2036,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "971:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                        "typeString": "tuple(uint256,uint256)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 2039,
+                          "name": "signature",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1988,
+                          "src": "1006:9:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2040,
+                          "name": "GX",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1969,
+                          "src": "1017:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2041,
+                          "name": "GY",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1972,
+                          "src": "1021:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2042,
+                          "name": "AA",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1975,
+                          "src": "1025:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2043,
+                          "name": "PP",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1981,
+                          "src": "1029:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "id": 2037,
+                          "name": "EllipticCurve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1962,
+                          "src": "986:13:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_EllipticCurve_$1962_$",
+                            "typeString": "type(library EllipticCurve)"
+                          }
+                        },
+                        "id": 2038,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1000:5:3",
+                        "memberName": "ecMul",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 1388,
+                        "src": "986:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
+                          "typeString": "function (uint256,uint256,uint256,uint256,uint256) pure returns (uint256,uint256)"
+                        }
+                      },
+                      "id": 2044,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "986:46:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                        "typeString": "tuple(uint256,uint256)"
+                      }
+                    },
+                    "src": "971:61:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2046,
+                  "nodeType": "ExpressionStatement",
+                  "src": "971:61:3"
+                },
+                {
+                  "assignments": [
+                    2049
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2049,
+                      "mutability": "mutable",
+                      "name": "S2",
+                      "nameLocation": "1086:2:3",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2092,
+                      "src": "1071:17:3",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                        "typeString": "struct Schnorr.ECPoint"
+                      },
+                      "typeName": {
+                        "id": 2048,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 2047,
+                          "name": "ECPoint",
+                          "nameLocations": [
+                            "1071:7:3"
+                          ],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 1986,
+                          "src": "1071:7:3"
+                        },
+                        "referencedDeclaration": 1986,
+                        "src": "1071:7:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ECPoint_$1986_storage_ptr",
+                          "typeString": "struct Schnorr.ECPoint"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2050,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1071:17:3"
+                },
+                {
+                  "expression": {
+                    "id": 2065,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "expression": {
+                            "id": 2051,
+                            "name": "S2",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2049,
+                            "src": "1095:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2053,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "1098:1:3",
+                          "memberName": "x",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1983,
+                          "src": "1095:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 2054,
+                            "name": "S2",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2049,
+                            "src": "1101:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2055,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "1104:1:3",
+                          "memberName": "y",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1985,
+                          "src": "1101:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "id": 2056,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1094:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                        "typeString": "tuple(uint256,uint256)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 2059,
+                          "name": "_hash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1998,
+                          "src": "1129:5:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2060,
+                          "name": "pubKeyX",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1990,
+                          "src": "1136:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2061,
+                          "name": "pubKeyY",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1992,
+                          "src": "1145:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2062,
+                          "name": "AA",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1975,
+                          "src": "1154:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2063,
+                          "name": "PP",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1981,
+                          "src": "1158:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "id": 2057,
+                          "name": "EllipticCurve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1962,
+                          "src": "1109:13:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_EllipticCurve_$1962_$",
+                            "typeString": "type(library EllipticCurve)"
+                          }
+                        },
+                        "id": 2058,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1123:5:3",
+                        "memberName": "ecMul",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 1388,
+                        "src": "1109:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
+                          "typeString": "function (uint256,uint256,uint256,uint256,uint256) pure returns (uint256,uint256)"
+                        }
+                      },
+                      "id": 2064,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1109:52:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                        "typeString": "tuple(uint256,uint256)"
+                      }
+                    },
+                    "src": "1094:67:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2066,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1094:67:3"
+                },
+                {
+                  "expression": {
+                    "id": 2084,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "expression": {
+                            "id": 2067,
+                            "name": "S2",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2049,
+                            "src": "1168:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2069,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "1171:1:3",
+                          "memberName": "x",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1983,
+                          "src": "1168:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 2070,
+                            "name": "S2",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2049,
+                            "src": "1174:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2071,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": true,
+                          "memberLocation": "1177:1:3",
+                          "memberName": "y",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1985,
+                          "src": "1174:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "id": 2072,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1167:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                        "typeString": "tuple(uint256,uint256)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 2075,
+                          "name": "RX",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1994,
+                          "src": "1202:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2076,
+                          "name": "RY",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1996,
+                          "src": "1206:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 2077,
+                            "name": "S2",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2049,
+                            "src": "1210:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2078,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1213:1:3",
+                          "memberName": "x",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1983,
+                          "src": "1210:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 2079,
+                            "name": "S2",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2049,
+                            "src": "1216:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                              "typeString": "struct Schnorr.ECPoint memory"
+                            }
+                          },
+                          "id": 2080,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1219:1:3",
+                          "memberName": "y",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1985,
+                          "src": "1216:4:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2081,
+                          "name": "AA",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1975,
+                          "src": "1222:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 2082,
+                          "name": "PP",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1981,
+                          "src": "1226:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "id": 2073,
+                          "name": "EllipticCurve",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1962,
+                          "src": "1182:13:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_EllipticCurve_$1962_$",
+                            "typeString": "type(library EllipticCurve)"
+                          }
+                        },
+                        "id": 2074,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1196:5:3",
+                        "memberName": "ecAdd",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 1307,
+                        "src": "1182:19:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
+                          "typeString": "function (uint256,uint256,uint256,uint256,uint256,uint256) pure returns (uint256,uint256)"
+                        }
+                      },
+                      "id": 2083,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1182:47:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                        "typeString": "tuple(uint256,uint256)"
+                      }
+                    },
+                    "src": "1167:62:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2085,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1167:62:3"
+                },
+                {
+                  "expression": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2090,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "expression": {
+                        "id": 2086,
+                        "name": "S1",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2029,
+                        "src": "1260:2:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                          "typeString": "struct Schnorr.ECPoint memory"
+                        }
+                      },
+                      "id": 2087,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1263:1:3",
+                      "memberName": "x",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1983,
+                      "src": "1260:4:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "expression": {
+                        "id": 2088,
+                        "name": "S2",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2049,
+                        "src": "1268:2:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ECPoint_$1986_memory_ptr",
+                          "typeString": "struct Schnorr.ECPoint memory"
+                        }
+                      },
+                      "id": 2089,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1271:1:3",
+                      "memberName": "x",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1983,
+                      "src": "1268:4:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1260:12:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 2002,
+                  "id": 2091,
+                  "nodeType": "Return",
+                  "src": "1253:19:3"
+                }
+              ]
+            },
+            "id": 2093,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "verify",
+            "nameLocation": "628:6:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1999,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1988,
+                  "mutability": "mutable",
+                  "name": "signature",
+                  "nameLocation": "643:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "635:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1987,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "635:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1990,
+                  "mutability": "mutable",
+                  "name": "pubKeyX",
+                  "nameLocation": "662:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "654:15:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1989,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "654:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1992,
+                  "mutability": "mutable",
+                  "name": "pubKeyY",
+                  "nameLocation": "679:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "671:15:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1991,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "671:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1994,
+                  "mutability": "mutable",
+                  "name": "RX",
+                  "nameLocation": "696:2:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "688:10:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1993,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "688:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1996,
+                  "mutability": "mutable",
+                  "name": "RY",
+                  "nameLocation": "709:2:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "701:10:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1995,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "701:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1998,
+                  "mutability": "mutable",
+                  "name": "_hash",
+                  "nameLocation": "721:5:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "713:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1997,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "713:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "634:93:3"
+            },
+            "returnParameters": {
+              "id": 2002,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2001,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2093,
+                  "src": "751:4:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2000,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "751:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "750:6:3"
+            },
+            "scope": 2094,
+            "src": "619:658:3",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2095,
+        "src": "178:1101:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1247:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xC997098F7a2d5824eB6bd6bb975A9D115044Ef1B",
+      "transactionHash": "0xf6e6aa7fe6043e63da2fb616dd788698f0a7b25b0d368f4ed42703c49b065bff"
+    }
+  },
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-03-28T05:30:54.537Z",
+  "devdoc": {
+    "author": "W1tnezz",
+    "kind": "dev",
+    "methods": {},
+    "title": "Schnorr Signature Verify on Secp256k1 Elliptic Curve",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
