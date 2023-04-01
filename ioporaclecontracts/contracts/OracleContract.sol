@@ -95,7 +95,7 @@ contract OracleContract {
          *Schnorr签名的验证*
          ******************/
 
-        // require(Schnorr.verify(signature, pubKeyX, pubKeyY, RX, RY, _hash), "signature: address does not match");
+        require(Schnorr.verify(signature, pubKeyX, pubKeyY, RX, RY, _hash), "signature: address does not match");
         delete enrollNodeIndices;
 
         // 给当前合约的调用者（聚合器）转账 
