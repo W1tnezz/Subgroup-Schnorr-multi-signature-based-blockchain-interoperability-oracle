@@ -114,6 +114,12 @@ func (n *TestAccount) Run() error {
 	if err != nil {
 		return fmt.Errorf("submit error: %w", err)
 	}
+
+	res, err := n.oracleContract.GetBlockTime(nil)
+	fmt.Println(res)
+	if err != nil {
+		return fmt.Errorf("submit error: %w", err)
+	}
 	return nil
 }
 

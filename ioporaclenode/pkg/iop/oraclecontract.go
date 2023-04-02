@@ -36,7 +36,7 @@ type OracleContractEnrollNode struct {
 
 // OracleContractMetaData contains all meta data concerning the OracleContract contract.
 var OracleContractMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_registryContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ValidationBegin\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumOracleContract.ValidationType\",\"name\":\"typ\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"ValidationRequest\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumOracleContract.ValidationType\",\"name\":\"typ\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"aggregator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"valid\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"ValidationResponse\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"BASE_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CHANLLENGE_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"COMPENSATION_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EnrollOracleNode\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOTAL_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATOR_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"chanllenge\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"countEnrollNodes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"findBlockValidationResult\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"findEnrollNodeByIndex\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"internalType\":\"structOracleContract.EnrollNode\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"findTransactionValidationResult\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fine\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"}],\"name\":\"oracleNodeIsEnroll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_result\",\"type\":\"bool\"},{\"internalType\":\"bytes32\",\"name\":\"message\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"signature\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hash\",\"type\":\"uint256\"}],\"name\":\"submitBlockValidationResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_result\",\"type\":\"bool\"},{\"internalType\":\"bytes32\",\"name\":\"message\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"signature\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hash\",\"type\":\"uint256\"}],\"name\":\"submitTransactionValidationResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"validateBlock\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"validateTransaction\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_registryContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ValidationBegin\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumOracleContract.ValidationType\",\"name\":\"typ\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"ValidationRequest\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enumOracleContract.ValidationType\",\"name\":\"typ\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"aggregator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"message\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"valid\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"ValidationResponse\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"beginTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"lazyValidators\",\"type\":\"address[]\"}],\"name\":\"urgeEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"BASE_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"COMPENSATION_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EnrollOracleNode\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOTAL_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"URGE_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATOR_FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"countEnrollNodes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"findBlockValidationResult\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"findEnrollNodeByIndex\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"internalType\":\"structOracleContract.EnrollNode\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"findTransactionValidationResult\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBlockTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"judge\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"provement\",\"type\":\"uint256\"}],\"name\":\"lazySubmit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"}],\"name\":\"oracleNodeIsEnroll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_result\",\"type\":\"bool\"},{\"internalType\":\"bytes32\",\"name\":\"message\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"signature\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hash\",\"type\":\"uint256\"}],\"name\":\"submitBlockValidationResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_result\",\"type\":\"bool\"},{\"internalType\":\"bytes32\",\"name\":\"message\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"signature\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pubKeyY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RX\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"RY\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hash\",\"type\":\"uint256\"}],\"name\":\"submitTransactionValidationResult\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"lazyValidators\",\"type\":\"address[]\"}],\"name\":\"urge\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"validateBlock\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"validateTransaction\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"waitTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // OracleContractABI is the input ABI used to generate the binding from.
@@ -216,37 +216,6 @@ func (_OracleContract *OracleContractCallerSession) BASEFEE() (*big.Int, error) 
 	return _OracleContract.Contract.BASEFEE(&_OracleContract.CallOpts)
 }
 
-// CHANLLENGEFEE is a free data retrieval call binding the contract method 0xa2ff2ad7.
-//
-// Solidity: function CHANLLENGE_FEE() view returns(uint256)
-func (_OracleContract *OracleContractCaller) CHANLLENGEFEE(opts *bind.CallOpts) (*big.Int, error) {
-	var out []interface{}
-	err := _OracleContract.contract.Call(opts, &out, "CHANLLENGE_FEE")
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// CHANLLENGEFEE is a free data retrieval call binding the contract method 0xa2ff2ad7.
-//
-// Solidity: function CHANLLENGE_FEE() view returns(uint256)
-func (_OracleContract *OracleContractSession) CHANLLENGEFEE() (*big.Int, error) {
-	return _OracleContract.Contract.CHANLLENGEFEE(&_OracleContract.CallOpts)
-}
-
-// CHANLLENGEFEE is a free data retrieval call binding the contract method 0xa2ff2ad7.
-//
-// Solidity: function CHANLLENGE_FEE() view returns(uint256)
-func (_OracleContract *OracleContractCallerSession) CHANLLENGEFEE() (*big.Int, error) {
-	return _OracleContract.Contract.CHANLLENGEFEE(&_OracleContract.CallOpts)
-}
-
 // COMPENSATIONFEE is a free data retrieval call binding the contract method 0xab3be840.
 //
 // Solidity: function COMPENSATION_FEE() view returns(uint256)
@@ -307,6 +276,37 @@ func (_OracleContract *OracleContractSession) TOTALFEE() (*big.Int, error) {
 // Solidity: function TOTAL_FEE() view returns(uint256)
 func (_OracleContract *OracleContractCallerSession) TOTALFEE() (*big.Int, error) {
 	return _OracleContract.Contract.TOTALFEE(&_OracleContract.CallOpts)
+}
+
+// URGEFEE is a free data retrieval call binding the contract method 0xab353079.
+//
+// Solidity: function URGE_FEE() view returns(uint256)
+func (_OracleContract *OracleContractCaller) URGEFEE(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _OracleContract.contract.Call(opts, &out, "URGE_FEE")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// URGEFEE is a free data retrieval call binding the contract method 0xab353079.
+//
+// Solidity: function URGE_FEE() view returns(uint256)
+func (_OracleContract *OracleContractSession) URGEFEE() (*big.Int, error) {
+	return _OracleContract.Contract.URGEFEE(&_OracleContract.CallOpts)
+}
+
+// URGEFEE is a free data retrieval call binding the contract method 0xab353079.
+//
+// Solidity: function URGE_FEE() view returns(uint256)
+func (_OracleContract *OracleContractCallerSession) URGEFEE() (*big.Int, error) {
+	return _OracleContract.Contract.URGEFEE(&_OracleContract.CallOpts)
 }
 
 // VALIDATORFEE is a free data retrieval call binding the contract method 0x7da83e2b.
@@ -464,6 +464,37 @@ func (_OracleContract *OracleContractCallerSession) FindTransactionValidationRes
 	return _OracleContract.Contract.FindTransactionValidationResult(&_OracleContract.CallOpts, _hash)
 }
 
+// GetBlockTime is a free data retrieval call binding the contract method 0x87ceff09.
+//
+// Solidity: function getBlockTime() view returns(uint256)
+func (_OracleContract *OracleContractCaller) GetBlockTime(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _OracleContract.contract.Call(opts, &out, "getBlockTime")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetBlockTime is a free data retrieval call binding the contract method 0x87ceff09.
+//
+// Solidity: function getBlockTime() view returns(uint256)
+func (_OracleContract *OracleContractSession) GetBlockTime() (*big.Int, error) {
+	return _OracleContract.Contract.GetBlockTime(&_OracleContract.CallOpts)
+}
+
+// GetBlockTime is a free data retrieval call binding the contract method 0x87ceff09.
+//
+// Solidity: function getBlockTime() view returns(uint256)
+func (_OracleContract *OracleContractCallerSession) GetBlockTime() (*big.Int, error) {
+	return _OracleContract.Contract.GetBlockTime(&_OracleContract.CallOpts)
+}
+
 // OracleNodeIsEnroll is a free data retrieval call binding the contract method 0xe92c04d1.
 //
 // Solidity: function oracleNodeIsEnroll(address _addr) view returns(bool)
@@ -495,6 +526,37 @@ func (_OracleContract *OracleContractCallerSession) OracleNodeIsEnroll(_addr com
 	return _OracleContract.Contract.OracleNodeIsEnroll(&_OracleContract.CallOpts, _addr)
 }
 
+// WaitTime is a free data retrieval call binding the contract method 0xccca123b.
+//
+// Solidity: function waitTime() view returns(uint256)
+func (_OracleContract *OracleContractCaller) WaitTime(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _OracleContract.contract.Call(opts, &out, "waitTime")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// WaitTime is a free data retrieval call binding the contract method 0xccca123b.
+//
+// Solidity: function waitTime() view returns(uint256)
+func (_OracleContract *OracleContractSession) WaitTime() (*big.Int, error) {
+	return _OracleContract.Contract.WaitTime(&_OracleContract.CallOpts)
+}
+
+// WaitTime is a free data retrieval call binding the contract method 0xccca123b.
+//
+// Solidity: function waitTime() view returns(uint256)
+func (_OracleContract *OracleContractCallerSession) WaitTime() (*big.Int, error) {
+	return _OracleContract.Contract.WaitTime(&_OracleContract.CallOpts)
+}
+
 // EnrollOracleNode is a paid mutator transaction binding the contract method 0x12f1e8f4.
 //
 // Solidity: function EnrollOracleNode() payable returns()
@@ -516,46 +578,46 @@ func (_OracleContract *OracleContractTransactorSession) EnrollOracleNode() (*typ
 	return _OracleContract.Contract.EnrollOracleNode(&_OracleContract.TransactOpts)
 }
 
-// Chanllenge is a paid mutator transaction binding the contract method 0x460e99f4.
+// Judge is a paid mutator transaction binding the contract method 0x573255f4.
 //
-// Solidity: function chanllenge() payable returns()
-func (_OracleContract *OracleContractTransactor) Chanllenge(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _OracleContract.contract.Transact(opts, "chanllenge")
+// Solidity: function judge() returns()
+func (_OracleContract *OracleContractTransactor) Judge(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _OracleContract.contract.Transact(opts, "judge")
 }
 
-// Chanllenge is a paid mutator transaction binding the contract method 0x460e99f4.
+// Judge is a paid mutator transaction binding the contract method 0x573255f4.
 //
-// Solidity: function chanllenge() payable returns()
-func (_OracleContract *OracleContractSession) Chanllenge() (*types.Transaction, error) {
-	return _OracleContract.Contract.Chanllenge(&_OracleContract.TransactOpts)
+// Solidity: function judge() returns()
+func (_OracleContract *OracleContractSession) Judge() (*types.Transaction, error) {
+	return _OracleContract.Contract.Judge(&_OracleContract.TransactOpts)
 }
 
-// Chanllenge is a paid mutator transaction binding the contract method 0x460e99f4.
+// Judge is a paid mutator transaction binding the contract method 0x573255f4.
 //
-// Solidity: function chanllenge() payable returns()
-func (_OracleContract *OracleContractTransactorSession) Chanllenge() (*types.Transaction, error) {
-	return _OracleContract.Contract.Chanllenge(&_OracleContract.TransactOpts)
+// Solidity: function judge() returns()
+func (_OracleContract *OracleContractTransactorSession) Judge() (*types.Transaction, error) {
+	return _OracleContract.Contract.Judge(&_OracleContract.TransactOpts)
 }
 
-// Fine is a paid mutator transaction binding the contract method 0xcf21c293.
+// LazySubmit is a paid mutator transaction binding the contract method 0x4cc18688.
 //
-// Solidity: function fine() payable returns()
-func (_OracleContract *OracleContractTransactor) Fine(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _OracleContract.contract.Transact(opts, "fine")
+// Solidity: function lazySubmit(uint256 provement) returns()
+func (_OracleContract *OracleContractTransactor) LazySubmit(opts *bind.TransactOpts, provement *big.Int) (*types.Transaction, error) {
+	return _OracleContract.contract.Transact(opts, "lazySubmit", provement)
 }
 
-// Fine is a paid mutator transaction binding the contract method 0xcf21c293.
+// LazySubmit is a paid mutator transaction binding the contract method 0x4cc18688.
 //
-// Solidity: function fine() payable returns()
-func (_OracleContract *OracleContractSession) Fine() (*types.Transaction, error) {
-	return _OracleContract.Contract.Fine(&_OracleContract.TransactOpts)
+// Solidity: function lazySubmit(uint256 provement) returns()
+func (_OracleContract *OracleContractSession) LazySubmit(provement *big.Int) (*types.Transaction, error) {
+	return _OracleContract.Contract.LazySubmit(&_OracleContract.TransactOpts, provement)
 }
 
-// Fine is a paid mutator transaction binding the contract method 0xcf21c293.
+// LazySubmit is a paid mutator transaction binding the contract method 0x4cc18688.
 //
-// Solidity: function fine() payable returns()
-func (_OracleContract *OracleContractTransactorSession) Fine() (*types.Transaction, error) {
-	return _OracleContract.Contract.Fine(&_OracleContract.TransactOpts)
+// Solidity: function lazySubmit(uint256 provement) returns()
+func (_OracleContract *OracleContractTransactorSession) LazySubmit(provement *big.Int) (*types.Transaction, error) {
+	return _OracleContract.Contract.LazySubmit(&_OracleContract.TransactOpts, provement)
 }
 
 // SubmitBlockValidationResult is a paid mutator transaction binding the contract method 0xcf88d42d.
@@ -598,6 +660,27 @@ func (_OracleContract *OracleContractSession) SubmitTransactionValidationResult(
 // Solidity: function submitTransactionValidationResult(bool _result, bytes32 message, uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX, uint256 RY, uint256 _hash) returns()
 func (_OracleContract *OracleContractTransactorSession) SubmitTransactionValidationResult(_result bool, message [32]byte, signature *big.Int, pubKeyX *big.Int, pubKeyY *big.Int, RX *big.Int, RY *big.Int, _hash *big.Int) (*types.Transaction, error) {
 	return _OracleContract.Contract.SubmitTransactionValidationResult(&_OracleContract.TransactOpts, _result, message, signature, pubKeyX, pubKeyY, RX, RY, _hash)
+}
+
+// Urge is a paid mutator transaction binding the contract method 0x3f6a97e7.
+//
+// Solidity: function urge(address[] lazyValidators) payable returns()
+func (_OracleContract *OracleContractTransactor) Urge(opts *bind.TransactOpts, lazyValidators []common.Address) (*types.Transaction, error) {
+	return _OracleContract.contract.Transact(opts, "urge", lazyValidators)
+}
+
+// Urge is a paid mutator transaction binding the contract method 0x3f6a97e7.
+//
+// Solidity: function urge(address[] lazyValidators) payable returns()
+func (_OracleContract *OracleContractSession) Urge(lazyValidators []common.Address) (*types.Transaction, error) {
+	return _OracleContract.Contract.Urge(&_OracleContract.TransactOpts, lazyValidators)
+}
+
+// Urge is a paid mutator transaction binding the contract method 0x3f6a97e7.
+//
+// Solidity: function urge(address[] lazyValidators) payable returns()
+func (_OracleContract *OracleContractTransactorSession) Urge(lazyValidators []common.Address) (*types.Transaction, error) {
+	return _OracleContract.Contract.Urge(&_OracleContract.TransactOpts, lazyValidators)
 }
 
 // ValidateBlock is a paid mutator transaction binding the contract method 0xdd5e22df.
@@ -992,7 +1075,7 @@ func (it *OracleContractValidationResponseIterator) Close() error {
 type OracleContractValidationResponse struct {
 	Typ        uint8
 	Aggregator common.Address
-	Hash       [32]byte
+	Message    [32]byte
 	Valid      bool
 	Fee        *big.Int
 	Raw        types.Log // Blockchain specific contextual infos
@@ -1000,7 +1083,7 @@ type OracleContractValidationResponse struct {
 
 // FilterValidationResponse is a free log retrieval operation binding the contract event 0x9739d27192db56a131c86c297677afccac89aa4f39cbc5bcd62a8d10ce559675.
 //
-// Solidity: event ValidationResponse(uint8 typ, address indexed aggregator, bytes32 hash, bool valid, uint256 fee)
+// Solidity: event ValidationResponse(uint8 typ, address indexed aggregator, bytes32 message, bool valid, uint256 fee)
 func (_OracleContract *OracleContractFilterer) FilterValidationResponse(opts *bind.FilterOpts, aggregator []common.Address) (*OracleContractValidationResponseIterator, error) {
 
 	var aggregatorRule []interface{}
@@ -1017,7 +1100,7 @@ func (_OracleContract *OracleContractFilterer) FilterValidationResponse(opts *bi
 
 // WatchValidationResponse is a free log subscription operation binding the contract event 0x9739d27192db56a131c86c297677afccac89aa4f39cbc5bcd62a8d10ce559675.
 //
-// Solidity: event ValidationResponse(uint8 typ, address indexed aggregator, bytes32 hash, bool valid, uint256 fee)
+// Solidity: event ValidationResponse(uint8 typ, address indexed aggregator, bytes32 message, bool valid, uint256 fee)
 func (_OracleContract *OracleContractFilterer) WatchValidationResponse(opts *bind.WatchOpts, sink chan<- *OracleContractValidationResponse, aggregator []common.Address) (event.Subscription, error) {
 
 	var aggregatorRule []interface{}
@@ -1059,10 +1142,145 @@ func (_OracleContract *OracleContractFilterer) WatchValidationResponse(opts *bin
 
 // ParseValidationResponse is a log parse operation binding the contract event 0x9739d27192db56a131c86c297677afccac89aa4f39cbc5bcd62a8d10ce559675.
 //
-// Solidity: event ValidationResponse(uint8 typ, address indexed aggregator, bytes32 hash, bool valid, uint256 fee)
+// Solidity: event ValidationResponse(uint8 typ, address indexed aggregator, bytes32 message, bool valid, uint256 fee)
 func (_OracleContract *OracleContractFilterer) ParseValidationResponse(log types.Log) (*OracleContractValidationResponse, error) {
 	event := new(OracleContractValidationResponse)
 	if err := _OracleContract.contract.UnpackLog(event, "ValidationResponse", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// OracleContractUrgeEventIterator is returned from FilterUrgeEvent and is used to iterate over the raw logs and unpacked data for UrgeEvent events raised by the OracleContract contract.
+type OracleContractUrgeEventIterator struct {
+	Event *OracleContractUrgeEvent // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *OracleContractUrgeEventIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(OracleContractUrgeEvent)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(OracleContractUrgeEvent)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *OracleContractUrgeEventIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *OracleContractUrgeEventIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// OracleContractUrgeEvent represents a UrgeEvent event raised by the OracleContract contract.
+type OracleContractUrgeEvent struct {
+	BeginTime      *big.Int
+	LazyValidators []common.Address
+	Raw            types.Log // Blockchain specific contextual infos
+}
+
+// FilterUrgeEvent is a free log retrieval operation binding the contract event 0x36f6fc8369ccf7caf98fc124c7063bf2ce83ee0dafe362af30eab6000f2b950f.
+//
+// Solidity: event urgeEvent(uint256 beginTime, address[] lazyValidators)
+func (_OracleContract *OracleContractFilterer) FilterUrgeEvent(opts *bind.FilterOpts) (*OracleContractUrgeEventIterator, error) {
+
+	logs, sub, err := _OracleContract.contract.FilterLogs(opts, "urgeEvent")
+	if err != nil {
+		return nil, err
+	}
+	return &OracleContractUrgeEventIterator{contract: _OracleContract.contract, event: "urgeEvent", logs: logs, sub: sub}, nil
+}
+
+// WatchUrgeEvent is a free log subscription operation binding the contract event 0x36f6fc8369ccf7caf98fc124c7063bf2ce83ee0dafe362af30eab6000f2b950f.
+//
+// Solidity: event urgeEvent(uint256 beginTime, address[] lazyValidators)
+func (_OracleContract *OracleContractFilterer) WatchUrgeEvent(opts *bind.WatchOpts, sink chan<- *OracleContractUrgeEvent) (event.Subscription, error) {
+
+	logs, sub, err := _OracleContract.contract.WatchLogs(opts, "urgeEvent")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(OracleContractUrgeEvent)
+				if err := _OracleContract.contract.UnpackLog(event, "urgeEvent", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseUrgeEvent is a log parse operation binding the contract event 0x36f6fc8369ccf7caf98fc124c7063bf2ce83ee0dafe362af30eab6000f2b950f.
+//
+// Solidity: event urgeEvent(uint256 beginTime, address[] lazyValidators)
+func (_OracleContract *OracleContractFilterer) ParseUrgeEvent(log types.Log) (*OracleContractUrgeEvent, error) {
+	event := new(OracleContractUrgeEvent)
+	if err := _OracleContract.contract.UnpackLog(event, "urgeEvent", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

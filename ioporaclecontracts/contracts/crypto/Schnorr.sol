@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "./BN256G1.sol";
 
 /**
- * @title Schnorr Signature Verify on Secp256k1 Elliptic Curve
+ * @title Schnorr Signature Verify on BN256 Elliptic Curve
  * @author W1tnezz
  */
 library  Schnorr {
@@ -15,7 +15,6 @@ library  Schnorr {
     uint256 x;
     uint256 y;
   }
-
 
   function toString(address account) public pure returns (string memory) {
     return toString(abi.encodePacked(account));
@@ -42,7 +41,6 @@ library  Schnorr {
   }
 
   function verify(uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash) internal returns (bool) {
-
     uint256[3] memory input1 =
     [
     GX,

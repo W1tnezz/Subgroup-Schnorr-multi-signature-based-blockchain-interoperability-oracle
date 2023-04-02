@@ -16524,7 +16524,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-04-01T12:30:30.821Z",
+  "updatedAt": "2023-04-02T04:31:54.053Z",
   "devdoc": {
     "author": "Witnet Foundation",
     "details": "Library providing arithmetic operations over elliptic curves. This library does not check whether the inserted points belong to the curve `isOnCurve` function should be used by the library user to check the aforementioned statement.",
