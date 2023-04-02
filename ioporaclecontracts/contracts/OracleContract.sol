@@ -164,6 +164,7 @@ contract OracleContract {
         emit urgeEvent(urgeBeginTime, LazyValidators);
     }
 
+    // 审判超时还未提交的验证器节点，只能由聚合器调用，并且当前区块时间需要达到超时条件才会惩罚验证器;
     function judge() public {
         RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
         require(aggregator.addr == msg.sender, "Caller is not the aggregator");  //判断当前合约的调用者是不是聚合器
@@ -173,6 +174,7 @@ contract OracleContract {
         delete(LazyValidators);
     }
 
+    // 被催促的验证器提交证明的入口，提交证明并且通过之后，可以将自己移除出待惩罚的节点地址数组：
     function lazySubmit(uint256 provement) public {
         require(LazyValidators[lazyValidatorIndex[msg.sender]] == msg.sender, "Not be urged!");
         // TODO: 提交证明，使自己从LazyValidators中移除；
