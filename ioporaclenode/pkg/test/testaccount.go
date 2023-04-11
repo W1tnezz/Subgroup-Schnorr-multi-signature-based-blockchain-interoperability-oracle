@@ -7,25 +7,16 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"go.dedis.ch/kyber/v3/pairing"
-	"go.dedis.ch/kyber/v3/util/random"
-	"ioporaclenode/internal/pkg/kyber/pairing/bn256"
 	"math/big"
 )
 
 type TestAccount struct {
 	UnsafeOracleNodeServer
-	suite           pairing.Suite
 	targetEthClient *ethclient.Client
 	oracleContract  *OracleContractWrapper
 	ecdsaPrivateKey *ecdsa.PrivateKey
 	account         common.Address
 	chainId         *big.Int
-}
-
-type Point struct {
-	X *big.Int
-	Y *big.Int
 }
 
 func NewTestAccount(c Config) (*TestAccount, error) {
@@ -58,9 +49,7 @@ func NewTestAccount(c Config) (*TestAccount, error) {
 	}
 	account := common.HexToAddress(hexAddress)
 
-	suite := bn256.NewSuiteG1()
 	node := &TestAccount{
-		suite:           suite,
 		targetEthClient: targetEthClient,
 		oracleContract:  oracleContractWrapper,
 		ecdsaPrivateKey: ecdsaPrivateKey,
@@ -82,41 +71,43 @@ func (n *TestAccount) Run() error {
 		return fmt.Errorf("new transactor: %w", err)
 	}
 
-	// schnorr公私钥对，私钥为随机标量，pubkey = privateKey * G
-	privateKey := n.suite.G1().Scalar().Pick(random.New())
-	pubkey := n.suite.G1().Point().Mul(privateKey, nil)
-	pubkeyBytes, _ := pubkey.MarshalBinary()
+	// 待签名消息的hash值，格式为32位Bytes数组
+	str := "1256901778428453331bd44b1619e05350b853610968f54da7338e4c331acbe2"
+	hash := crypto.Keccak256Hash([]byte(str))
 
-	// r为随机数，R = r * G
-	r := n.suite.G1().Scalar().Pick(random.New())
-	R := n.suite.G1().Point().Mul(r, nil)
-	RBytes, _ := R.MarshalBinary()
+	// 测试用的ECDSA公私钥，当作是最后聚合的公私钥
+	testECDSAKey, _ := crypto.GenerateKey()
+	testPrivateKey := testECDSAKey.D
+	testPublicKey := testECDSAKey.PublicKey
+	fmt.Print("测试私钥：")
+	fmt.Println(testPrivateKey)
+	fmt.Print("测试公钥：")
+	fmt.Println(testPublicKey)
 
-	// 随机消息_message，哈希为byte[32]数组 --> message
-	_message := "1256901778428453331b853610968234rw543f54da4c331e2"
-	message := crypto.Keccak256Hash([]byte(_message))
+	testAddress := crypto.PubkeyToAddress(testPublicKey)
 
-	// e为随机消息映射到曲线上的标量,即_message --> message --> e, _hash为e的big.Int形式
-	e := n.suite.G1().Scalar().SetBytes(message.Bytes())
-	_hash := new(big.Int)
-	_hash.SetString(e.String(), 16)
-	fmt.Println(_hash)
-
-	// tmp = e * privateKey, 签名_s = r + tmp = r + e * privateKey, s为_s的big.Int形式
-	tmp := n.suite.G1().Scalar().Mul(e, privateKey)
-	_s := n.suite.G1().Scalar().Add(r, tmp)
-	_sBytes, _ := _s.MarshalBinary()
-	s := new(big.Int)
-	s.SetBytes(_sBytes)
+	sig, _ := crypto.Sign(hash.Bytes(), testECDSAKey)
+	fmt.Print("signature:")
+	fmt.Println(sig)
+	var r [32]byte
+	for i := 0; i < 32; i++ {
+		r[i] = sig[i]
+	}
+	fmt.Print("r：")
+	fmt.Println(r)
+	var s [32]byte
+	for i := 0; i < 32; i++ {
+		s[i] = sig[i+32]
+	}
+	fmt.Print("s：")
 	fmt.Println(s)
 
-	_, err = n.oracleContract.SubmitTransactionValidationResult(auth, true, message, s, new(big.Int).SetBytes(pubkeyBytes[:32]), new(big.Int).SetBytes(pubkeyBytes[32:64]), new(big.Int).SetBytes(RBytes[:32]), new(big.Int).SetBytes(RBytes[32:64]), _hash)
-	if err != nil {
-		return fmt.Errorf("submit error: %w", err)
-	}
+	// 巨坑：以太坊黄皮书更新v从0/1为27/28
+	var v = sig[64] + 27
+	fmt.Print("v：")
+	fmt.Println(v)
 
-	res, err := n.oracleContract.GetBlockTime(nil)
-	fmt.Println(res)
+	_, err = n.oracleContract.SubmitTransactionValidationResult(auth, true, testAddress, v, r, s, hash)
 	if err != nil {
 		return fmt.Errorf("submit error: %w", err)
 	}

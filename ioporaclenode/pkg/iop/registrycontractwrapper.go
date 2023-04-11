@@ -24,3 +24,19 @@ func (r *RegistryContractWrapper) FindOracleNodes() ([]RegistryContractOracleNod
 	}
 	return nodeEntries, nil
 }
+
+func (r *RegistryContractWrapper) GetAllPk() ([][]byte ,error){
+	nodes, err := r.FindOracleNodes()
+	count, err := r.CountOracleNodes(nil)
+	if err != nil {
+		return nil, fmt.Errorf("count oracle nodes: %w", err)
+	}
+	if err != nil {
+		fmt.Errorf("find nodes: %w", err)
+	}
+	nodePks := make([][]byte,count.Int64())
+	for i:= int64(0) ; i< count.Int64();i++{
+		nodePks[i] = nodes[i].PubKey
+	}
+	return nodePks , nil
+}

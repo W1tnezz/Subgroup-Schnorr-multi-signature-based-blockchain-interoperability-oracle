@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.6.1
-// source: client.proto
+// source: oraclenode.proto
 
 package iop
 
@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OracleNodeClient interface {
-	SendDeal(ctx context.Context, in *SendDealRequest, opts ...grpc.CallOption) (*SendDealResponse, error)
+	SendR(ctx context.Context, in *SendRRequest, opts ...grpc.CallOption) (*SendRResponse, error)
 	Validate(ctx context.Context, in *ValidateRequest, opts ...grpc.CallOption) (*ValidateResponse, error)
 	Chanllenge(ctx context.Context, in *ChanllengeRequest, opts ...grpc.CallOption) (*ChanllengeResponse, error)
 }
@@ -35,9 +35,9 @@ func NewOracleNodeClient(cc grpc.ClientConnInterface) OracleNodeClient {
 	return &oracleNodeClient{cc}
 }
 
-func (c *oracleNodeClient) SendDeal(ctx context.Context, in *SendDealRequest, opts ...grpc.CallOption) (*SendDealResponse, error) {
-	out := new(SendDealResponse)
-	err := c.cc.Invoke(ctx, "/iop.OracleNode/SendDeal", in, out, opts...)
+func (c *oracleNodeClient) SendR(ctx context.Context, in *SendRRequest, opts ...grpc.CallOption) (*SendRResponse, error) {
+	out := new(SendRResponse)
+	err := c.cc.Invoke(ctx, "/iop.OracleNode/SendR", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (c *oracleNodeClient) Chanllenge(ctx context.Context, in *ChanllengeRequest
 // All implementations must embed UnimplementedOracleNodeServer
 // for forward compatibility
 type OracleNodeServer interface {
-	SendDeal(context.Context, *SendDealRequest) (*SendDealResponse, error)
+	SendR(context.Context, *SendRRequest) (*SendRResponse, error)
 	Validate(context.Context, *ValidateRequest) (*ValidateResponse, error)
 	Chanllenge(context.Context, *ChanllengeRequest) (*ChanllengeResponse, error)
 	mustEmbedUnimplementedOracleNodeServer()
@@ -76,8 +76,8 @@ type OracleNodeServer interface {
 type UnimplementedOracleNodeServer struct {
 }
 
-func (UnimplementedOracleNodeServer) SendDeal(context.Context, *SendDealRequest) (*SendDealResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SendDeal not implemented")
+func (UnimplementedOracleNodeServer) SendR(context.Context, *SendRRequest) (*SendRResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendR not implemented")
 }
 func (UnimplementedOracleNodeServer) Validate(context.Context, *ValidateRequest) (*ValidateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Validate not implemented")
@@ -98,20 +98,20 @@ func RegisterOracleNodeServer(s grpc.ServiceRegistrar, srv OracleNodeServer) {
 	s.RegisterService(&OracleNode_ServiceDesc, srv)
 }
 
-func _OracleNode_SendDeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendDealRequest)
+func _OracleNode_SendR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendRRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OracleNodeServer).SendDeal(ctx, in)
+		return srv.(OracleNodeServer).SendR(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/iop.OracleNode/SendDeal",
+		FullMethod: "/iop.OracleNode/SendR",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OracleNodeServer).SendDeal(ctx, req.(*SendDealRequest))
+		return srv.(OracleNodeServer).SendR(ctx, req.(*SendRRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -160,8 +160,8 @@ var OracleNode_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*OracleNodeServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SendDeal",
-			Handler:    _OracleNode_SendDeal_Handler,
+			MethodName: "SendR",
+			Handler:    _OracleNode_SendR_Handler,
 		},
 		{
 			MethodName: "Validate",
@@ -173,5 +173,5 @@ var OracleNode_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "client.proto",
+	Metadata: "oraclenode.proto",
 }

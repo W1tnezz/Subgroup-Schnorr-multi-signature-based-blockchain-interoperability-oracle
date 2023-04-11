@@ -5,7 +5,7 @@ contract RegistryContract {
     struct OracleNode {
         address addr;  // 链上地址
         string ipAddr; // 节点IP地址
-        bytes pubKey;  // ECDSA公钥；
+        bytes pubKey;  // schnorr公钥；
         uint256 stake; // 质押
         uint256 index;
     }

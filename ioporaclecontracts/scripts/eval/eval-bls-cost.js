@@ -26,38 +26,13 @@ module.exports = async function () {
 
   let counter = 0;
   let oracleContract = await OracleContract.deployed();
-  let tx = "0x1256901778428453331bd44b1619e05350b853610968f54da7338e4c331acbe2";
+  let tx = "0xf4bb9a6843194a5f9d10c70202b445733ad8feb5b5f9bce2c699e4cd0abb4bd2";
   let fee = await oracleContract.TOTAL_FEE();
-
-  // await web3.eth.subscribe(
-  //   "logs",
-  //   {
-  //     address: OracleContract.address,
-  //     topics: [topic],
-  //   },
-  //   async function (error, result) {
-  //     if (!error) {
-  //       let receipt = await web3.eth.getTransactionReceipt(
-  //         result.transactionHash
-  //       );
-  //       records.push({ id: counter, gas: receipt.cumulativeGasUsed });
-
-  //       if (counter === 10) {
-  //         await csvWriter.writeRecords(records).then(() => {
-  //           console.log("...Done");
-  //         });
-  //         return;
-  //       }
-
-  //       counter++;
-  //     }
-  //   }
-  // );
 
   await oracleContract.validateTransaction(tx, {
     value: fee,
   });
 
   let count = await oracleContract.countEnrollNodes();
-  console.log(count)
+  console.log(count);
 };

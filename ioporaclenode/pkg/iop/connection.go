@@ -26,7 +26,6 @@ func NewConnectionManager(registryContract *RegistryContractWrapper, account com
 	}
 }
 
-// 监听链上的注册通知
 func (m *ConnectionManager) WatchAndHandleRegisterOracleNodeLog(ctx context.Context) error {
 	sink := make(chan *RegistryContractRegisterOracleNode)
 	defer close(sink)
@@ -69,7 +68,6 @@ func (m *ConnectionManager) HandleRegisterOracleNodeLog(event *RegistryContractR
 	return nil
 }
 
-// 调用合约FindOracleNodes查找其它节点的IP地址并建立连接；
 func (m *ConnectionManager) InitConnections() error {
 	log.Info("Initialize connections to other nodes")
 	nodes, err := m.registryContract.FindOracleNodes()

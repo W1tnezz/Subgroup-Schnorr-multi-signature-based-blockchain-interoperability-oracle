@@ -5,23 +5,18 @@ import "./RegistryContract.sol";
 import "./crypto/Schnorr.sol";
 
 contract OracleContract {
-    struct EnrollNode {
-        address addr;
-        uint256 index;
-    }
 
     // 当前是否有请求验证的标志
     bool private isValidateTime = false;
 
     // 请求验证需要的钱
-    uint256 public constant BASE_FEE = 0.001 ether;
+    uint256 public constant BASE_FEE = 0.1 ether;
 
     // 验证奖励
-    uint256 public constant VALIDATOR_FEE = 0.0001 ether;
+    uint256 public constant VALIDATOR_FEE = 0.01 ether;
     uint256 public constant TOTAL_FEE = BASE_FEE + VALIDATOR_FEE * 100;
 
-
-
+    address private aggregatorAddr;
     bool private isUrgeTime = false; // 标志当前是否正在催促验证器;
     uint private urgeBeginTime;
     uint public constant waitTime = 30;
@@ -35,8 +30,7 @@ contract OracleContract {
     mapping(bytes32 => bool) private blockValidationResults;
     mapping(bytes32 => bool) private txValidationResults;
 
-    // 记录报名节点的映射；
-    mapping(address => EnrollNode) private enrollNodes;
+    // 记录报名节点的地址；
     address[] private enrollNodeIndices;
 
 
@@ -71,23 +65,27 @@ contract OracleContract {
     function validateBlock(bytes32 _hash) external payable minFee(TOTAL_FEE) {
         require(!isValidateTime, "Another validate is in progress!");
         isValidateTime = true;
+        RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
+        aggregatorAddr = aggregator.addr;
         emit ValidationRequest(ValidationType.BLOCK, msg.sender, _hash);
     }
 
     function validateTransaction(bytes32 _hash) external payable minFee(TOTAL_FEE) {
         require(!isValidateTime, "Another validate is in progress!");
         isValidateTime = true;
+        RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
+        aggregatorAddr = aggregator.addr;
         emit ValidationRequest(ValidationType.TRANSACTION, msg.sender, _hash);
     }
 
     function submitBlockValidationResult(bool _result, bytes32 message, uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash) external {
-        // require(isValidateTime, "Not validate time!");
+        require(isValidateTime, "Not validate time!");
         submitValidationResult(ValidationType.BLOCK, _result, message, signature, pubKeyX, pubKeyY, RX, RY, _hash);
         isValidateTime = false;
     }
 
     function submitTransactionValidationResult(bool _result, bytes32 message, uint256 signature, uint256 pubKeyX, uint256 pubKeyY, uint256 RX , uint256 RY, uint256 _hash) external {
-        // require(isValidateTime, "Not validate time!");
+        require(isValidateTime, "Not validate time!");
         submitValidationResult(ValidationType.TRANSACTION, _result, message, signature, pubKeyX, pubKeyY, RX, RY, _hash);
         isValidateTime = false;
     }
@@ -101,43 +99,32 @@ contract OracleContract {
     ) private {
 
         require(_typ != ValidationType.UNKNOWN, "unknown validation type");
-
-        // RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
-        // require(aggregator.addr == msg.sender, "not the aggregator");  //判断当前合约的调用者是不是聚合器
-
-        /******************
-         *Schnorr签名的验证*
-         ******************/
-
+        require(aggregatorAddr == msg.sender, "not the aggregator");  //判断当前合约的调用者是不是聚合器
+        /*Schnorr签名的验证*/
         require(Schnorr.verify(signature, pubKeyX, pubKeyY, RX, RY, _hash), "signature: address does not match");
-        delete enrollNodeIndices;
 
         // 给当前合约的调用者（聚合器）转账 
-        // payable(msg.sender).transfer(BASE_FEE);     //此处完成给聚合器的报酬转账
-
+        payable(msg.sender).transfer(BASE_FEE);     //此处完成给聚合器的报酬转账
         // 给所有的参与验证的验证器节点转账
         for(uint32 i = 0 ; i < enrollNodeIndices.length ; i++){
             payable(enrollNodeIndices[i]).transfer(VALIDATOR_FEE);
         }
-        
-        if (_typ == ValidationType.BLOCK) {
+
+        delete enrollNodeIndices;
+/*        if (_typ == ValidationType.BLOCK) {
             blockValidationResults[message] = _result;
         } else if (_typ == ValidationType.TRANSACTION) {
             txValidationResults[message] = _result;
-        }
-
+        }*/
         emit ValidationResponse(_typ, msg.sender, message, _result, BASE_FEE + VALIDATOR_FEE * enrollNodeIndices.length );  // 通知链下，聚合奖励 + 验证奖励 * 验证器报名个数
     }
 
     // 报名
-    function EnrollOracleNode() external payable{
+    function EnrollOracleNode() external {
         require(enrollNodeIndices.length <= registryContract.countOracleNodes()/2, "Enrollment closed!");
         require(registryContract.oracleNodeIsRegistered(msg.sender) , "The Oracle doesn't registered");
         require(!oracleNodeIsEnroll(msg.sender), "already enrolled");
-        EnrollNode storage iopNode = enrollNodes[msg.sender];
-        iopNode.addr = msg.sender;
-        iopNode.index = enrollNodeIndices.length;
-        enrollNodeIndices.push(iopNode.addr);
+        enrollNodeIndices.push(msg.sender);
         if(enrollNodeIndices.length == registryContract.countOracleNodes()/2 + 1){
             emit ValidationBegin();
         }
@@ -145,14 +132,18 @@ contract OracleContract {
     // 是否报名
     function oracleNodeIsEnroll(address _addr) public view returns (bool){
         if (enrollNodeIndices.length == 0) return false;
-        return (enrollNodeIndices[enrollNodes[_addr].index] == _addr);
+        for(uint32 i = 0 ; i < enrollNodeIndices.length ; i++){
+            if(enrollNodeIndices[i] == _addr){
+                return true;
+            }
+        }
+        return false;
     }
 
     // 由聚合器调用，用于催促未提交结果或参与交互的验证器；
     function urge(address[] calldata lazyValidators) public payable {
-        RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
-        require(aggregator.addr == msg.sender, "Caller is not the aggregator");  //判断当前合约的调用者是不是聚合器
-        require(isValidateTime, "Not validate time!"); // 当前是不是验证时间；
+        // require(aggregatorAddr == msg.sender, "not the aggregator"); //判断当前合约的调用者是不是聚合器
+        // require(isValidateTime, "Not validate time!"); // 当前是不是验证时间；
         require(!isUrgeTime, "Already urge lazyValidators"); // 是否已经催促过，不允许重复调用;
         isUrgeTime = true;
         urgeBeginTime = getBlockTime();
@@ -166,8 +157,7 @@ contract OracleContract {
 
     // 审判超时还未提交的验证器节点，只能由聚合器调用，并且当前区块时间需要达到超时条件才会惩罚验证器;
     function judge() public {
-        RegistryContract.OracleNode memory aggregator = registryContract.getAggregator();
-        require(aggregator.addr == msg.sender, "Caller is not the aggregator");  //判断当前合约的调用者是不是聚合器
+        require(aggregatorAddr == msg.sender, "not the aggregator");  //判断当前合约的调用者是不是聚合器
         require(isUrgeTime, "Haven't urge lazyValidator");
         require(urgeBeginTime + waitTime < getBlockTime(), "Be patient");
         // TODO: 惩罚LazyValidators中的验证器；
@@ -189,10 +179,10 @@ contract OracleContract {
     function findEnrollNodeByIndex(uint256 _index)
         public
         view
-        returns (EnrollNode memory)
+        returns (address)
     {
         require(_index >= 0 && _index < enrollNodeIndices.length, "not found");
-        return enrollNodes[enrollNodeIndices[_index]];
+        return enrollNodeIndices[_index];
     }
     // 返回报名总数
     function countEnrollNodes() external view returns (uint256){
