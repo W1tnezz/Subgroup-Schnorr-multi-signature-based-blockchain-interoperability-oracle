@@ -7,11 +7,14 @@ contract RegistryContract {
         string ipAddr; // 节点IP地址
         bytes pubKey;  // schnorr公钥；
         uint256 stake; // 质押
+        uint8 reliability; // 可信度
         uint256 index;
     }
 
     uint256 private constant BLOCK_RANGE = 6;
-    uint256 public constant MIN_STAKE = 1 ether;
+    uint256 public constant LOW_STAKE = 1 ether;
+    uint256 public constant MEDIUM_STAKE = 2 ether;
+    uint256 public constant HIGH_STAKE = 3 ether;
 
     mapping(address => OracleNode) private oracleNodes;
     address[] private oracleNodeIndices;
@@ -23,14 +26,22 @@ contract RegistryContract {
         payable
     {
         require(!oracleNodeIsRegistered(msg.sender), "already registered");
-        require(msg.value >= MIN_STAKE, "min stake too low");
+        require(msg.value >= LOW_STAKE, "min stake too low");
 
         OracleNode storage iopNode = oracleNodes[msg.sender];
         iopNode.addr = msg.sender;
         iopNode.ipAddr = _ipAddr;
         iopNode.pubKey = _pubKey;
         iopNode.stake = msg.value;
+        if (msg.value >= HIGH_STAKE){
+            iopNode.reliability = 3;
+        } else if (msg.value >= MEDIUM_STAKE){
+            iopNode.reliability = 2;
+        } else {
+            iopNode.reliability = 1;
+        }
         iopNode.index = oracleNodeIndices.length;
+
         oracleNodeIndices.push(iopNode.addr);
 
         emit RegisterOracleNode(msg.sender);
