@@ -60,10 +60,6 @@ contract RegistryContract {
         return oracleNodes[oracleNodeIndices[_index]];
     }
 
-    function countOracleNodes() external view returns (uint256) {
-        return oracleNodeIndices.length;
-    }
-
     function isAggregator(address _addr) public view returns (bool) {
         /**
          * As this method is a call, block.number refers to an already finalized block.
@@ -105,5 +101,22 @@ contract RegistryContract {
 
     function blockNumberMod(uint256 _block) internal view returns (uint256) {
         return _block % (oracleNodeIndices.length * BLOCK_RANGE);
+    }
+
+    function unregister(address unregisterAddr) 
+        public
+    {
+        require(msg.sender == unregisterAddr, "Only allow unregister yourself!");
+        require(oracleNodeIsRegistered(unregisterAddr), "Haven't registered!");
+        payable(unregisterAddr).transfer(oracleNodes[unregisterAddr].stake); // 退回押金
+        delete oracleNodeIndices[oracleNodes[unregisterAddr].index]; // 删除数组地址
+        delete oracleNodes[unregisterAddr]; // 删除map键值对
+    }
+
+    function deleteNode(address addr)
+        external
+    {
+        delete oracleNodeIndices[oracleNodes[addr].index]; // 删除数组地址
+        delete oracleNodes[addr]; // 删除map键值对
     }
 }
